@@ -1,0 +1,272 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<title>Menu Example</title>
+<style>
+    * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  background-color: #212529;
+  color: #fff;
+}
+
+button {
+  border: none;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown__button {
+  padding: 1rem 0.5rem;
+  background-color: #343a40;
+  /* border: solid 1px #495057; */
+  width:200px;
+}
+
+.dropdown__button i {
+  margin-left: 3.5rem;
+}
+
+.dropdown__button:hover {
+  background-color: #495057;
+}
+
+.dropdown__items {
+  background-color: #343a40;
+  /* border: solid 1px #495057; */
+  position: absolute;
+  margin-top: 0.5rem;
+  left: 0;
+  width: 200px;
+  /* padding: 0.5rem; */
+/*   border-radius: 0.5rem; */
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  animation: open 0.3s;
+  transform-origin: top left;
+}
+
+.dropdown__item {
+  width: 100%;
+  text-align: left;
+  padding: 1rem;
+}
+
+ .dropdown__item:hover {
+  background-color: #495057;
+/*   border-radius: 0.5rem; */
+} 
+
+.dropdown--hide {
+  display: none;
+}
+
+.dropdown--show {
+  display: block;
+}
+
+@keyframes open {
+  from {
+    transform: scaleY(0);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
+
+</style>
+</head>
+<body>
+  <div class="dropdown">
+    <button class="dropdown__button" id="dropdown__but">Open dropdown<i class="fa-solid fa-caret-down"></i></button>
+    <div class="dropdown__items dropdown--hide">
+      <div class="dropdown__item">CIC</div>
+      <div class="dropdown__item">CRM</div>
+      <div class="dropdown__item">CPRM</div>
+      <div class="dropdown__item">CSRM</div>
+    </div>
+  </div>
+  
+  <script>
+   const dropdownBtn = document.querySelector(".dropdown__button");
+   const dropdownItems = document.querySelector(".dropdown__items");
+   
+
+   let isOpen = false;
+
+   const openDropdown = () => {
+    isOpen = !isOpen;
+
+    if (isOpen) {
+      dropdownItems.classList.replace("dropdown--hide", "dropdown--show"); 
+    } else {
+      dropdownItems.classList.replace("dropdown--show", "dropdown--hide");
+    }
+    };
+
+    dropdownBtn.addEventListener("click", openDropdown);
+    
+  </script>
+
+</body>
+</html> -->
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Menu Example</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: grid;
+      place-content: center;
+      min-height: 100vh;
+      background-color: #212529;
+      color: #fff;
+    }
+
+    button {
+      border: none;
+      background: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown__button {
+      padding: 1rem 0.5rem;
+      background-color: #343a40;
+      width: 200px;
+      text-align: left;
+      padding-left: 15px;
+    }
+
+    .dropdown i {
+      transition: transform 0.3s ease-in-out;
+    }
+    .dropdown__button.active i {
+        transform: rotate(360deg);
+     }
+
+    .dropdown__button:hover {
+      background-color: #495057;
+    }
+
+    .dropdown__items {
+      background-color: #343a40;
+      position: absolute;
+      margin-top: 0.5rem;
+      left: 0;
+      width: 200px;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      animation: open 0.3s;
+      transform-origin: top left;
+      display: none; /* Initially hidden */
+    }
+
+    .dropdown__item {
+      width: 100%;
+      text-align: left;
+      padding: 1rem;
+      cursor: pointer; /* Add cursor pointer to indicate it's clickable */
+    }
+
+    .dropdown__item:hover {
+      background-color: #495057;
+    }
+
+    .dropdown--show {
+      display: block;
+    }
+
+    @keyframes open {
+      from {
+        transform: scaleY(0);
+      }
+
+      to {
+        transform: scaleY(1);   
+      }
+    }
+    .dropdown i {
+      color: aquamarine;
+      font-size: 20px;
+      transform: rotate(180deg);
+    }
+    .dropdown span i {
+      position: relative;
+      right: 30px;
+    }
+  
+  </style>
+</head>
+<body>
+  <div class="dropdown">
+    <button class="dropdown__button" id="dropdown__but">Open dropdown</button><span><i class="fa-solid fa-circle-up" 
+    style=""></i></span>
+    <div class="dropdown__items" id="drp__items">
+      <div class="dropdown__item" onclick="selectChoice('CIC')">CIC</div>
+      <div class="dropdown__item" onclick="selectChoice('CRM')">CRM</div>
+      <div class="dropdown__item" onclick="selectChoice('CPRM')">CPRM</div>
+      <div class="dropdown__item" onclick="selectChoice('CSRM')">CSRM</div>
+    </div>
+  </div>
+  <script>
+    const dropdownBtn = document.querySelector(".dropdown__button");
+    const dropdownItems = document.querySelector(".dropdown__items");
+
+    let isOpen = false;
+
+    const toggleDropdown = () => {
+      isOpen = !isOpen;
+
+      if (isOpen) {
+        dropdownItems.classList.add("dropdown--show");
+      } else {
+        dropdownItems.classList.remove("dropdown--show");
+      }
+
+      // Toggle the button icon
+      dropdownBtn.classList.toggle("active");
+    };
+
+    dropdownBtn.addEventListener("click", toggleDropdown);
+
+    
+
+
+    // Function to select a choice and display it in the button
+    function selectChoice(choice) {
+      dropdownBtn.textContent = `${choice}`;
+      toggleDropdown(); // Close the dropdown after selecting
+    }
+  </script>
+</body>
+</html> -->
